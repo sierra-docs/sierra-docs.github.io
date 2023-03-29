@@ -1,8 +1,16 @@
-# Community documentation for Sierra
+# Introduction
 
 Sierra is an intermediate representation for the Starknet language. It
 can be used to understand the internals of Cairo contracts as well as
 creating entirely new programming languages for Starknet.
+
+**Who this is for**
+
+Learning more about Sierra will be useful for:
+
+- Advanced Cairo developers,
+- Cairo security auditors and tool developers,
+- Researchers seeking to build knew ZK languages.
 
 **WARNING**
 
@@ -11,13 +19,19 @@ This is a community generated documentation with heavy AI input. Notably:
 - It may not be accurate,
 - It may not be entirely up-to-date.
 
+**How do I use Sierra when writing smart contracts**
+
+If you are using the [`cairo-template`](https://www.github.com/auditless/cairo-template) to build your
+smart contracts, there's a built in command `scarb run sierra` you can use to preview generated Sierra
+code for your contracts.
+
 **Feedback**
 
-If you have any feedback, message [@p_e](http://www.twitter.com/p_e) on Twitter or create a PR for https://github.com/sierra-docs/sierra-docs.github.io.
+If you have any feedback, message [@p_e](https://www.twitter.com/p_e) on Twitter or create a PR for https://github.com/sierra-docs/sierra-docs.github.io.
 
 # Libfuncs
 
-Libfuncs are the built-in functions in Sierra. They are used to implement all operations.
+Libfuncs are the built-in functions in Sierra and are used to implement all operations.
 Libfuncs are polymorphic supporting multiple types.
 
 ## Array Operations
