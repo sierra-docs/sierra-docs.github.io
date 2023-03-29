@@ -76,7 +76,7 @@ Generates the range checks required to check index is within bounds and returns 
 **Returns:**
 
 - `RC'`: Updated RangeCheck pointer.
-- `array`: The array
+- `array`: The array.
 - `element` : The element at the given index.
 
 **Example:**
