@@ -7,4 +7,4 @@
 > Documentation for Starknet's intermediate representation Sierra
 
 [GitHub](https://github.com/sierra-docs/sierra-docs.github.io)
-[Get Started](#Introduction)
+[Start Learning](#Introduction)
