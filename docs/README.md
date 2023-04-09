@@ -272,8 +272,8 @@ Invokes the bitwise built-in.
 **Parameters:**
 
 - `BW` : Bitwise built-in.
-- `x`: First boolean.
-- `y`: Second boolean.
+- `x`: First `u128`.
+- `y`: Second `u128`.
 
 **Returns:**
 
@@ -284,6 +284,136 @@ Invokes the bitwise built-in.
 ```rust
 bitwise([1], [2], [3]) -> ([4], [5], [6], [7]);
 ```
+
+## Boolean Operations
+
+---
+
+### `bool_and_impl`
+
+**Syntax:**
+
+```rust
+bool_and_impl(a, b) -> (a & b);
+```
+
+**Overview:**
+
+Calculates the logical AND of two bool values.
+
+**Semantics:**
+
+Implemented as a multiplication `a * b`.
+
+**Parameters:**
+
+- `a`: First bool
+- `b`: Second bool
+
+**Example:**
+
+```rust
+bool_and_impl([1], [2]) -> ([3]);
+```
+
+### `bool_not_impl`
+
+**Syntax:**
+
+```rust
+bool_not_impl(a) -> (!a);
+```
+
+**Overview:**
+
+Calculates the logical negation of a bool value.
+
+**Semantics:**
+
+Implemented as a subtraction `1 - a`.
+
+**Example:**
+
+```rust
+bool_not_impl([1]) -> ([2]);
+```
+
+### `bool_or_impl`
+
+**Syntax:**
+
+```rust
+bool_or_impl(a, b) -> (a | b);
+```
+
+**Overview:**
+
+Calculates the logical OR of two bool values.
+
+**Semantics:**
+
+Implemented as `a + b - a * b`.
+
+**Parameters:**
+
+- `a`: First bool
+- `b`: Second bool
+
+**Example:**
+
+```rust
+bool_or_impl([1], [2]) -> ([3]);
+```
+
+### `bool_to_felt252`
+
+**Syntax:**
+
+```rust
+bool_to_felt252(a) -> (a);
+```
+
+**Overview:**
+
+Casts a boolean value into a felt252 value.
+
+**Semantics:**
+
+No underlying reference changes are required as booleans are implemented as felts.
+
+**Example:**
+
+```rust
+bool_to_felt252([1]) -> ([2]);
+```
+
+### `bool_xor_impl`
+
+**Syntax:**
+
+```rust
+bool_xor_impl(a, b) -> (a ^ b);
+```
+
+**Overview:**
+
+Calculates the logical XOR of two bool values.
+
+**Semantics:**
+
+Implemented as `let diff = a - b in diff * diff`.
+
+**Parameters:**
+
+- `a`: First bool
+- `b`: Second bool
+
+**Example:**
+
+```rust
+bool_xor_impl([1], [2]) -> ([3]);
+```
+
 
 ## Memory Operations
 
