@@ -530,3 +530,29 @@ Value to be stored.
 ```rust
 store_temp<felt252>([1]) -> ([1]);
 ```
+
+## Misc Operations
+
+---
+
+### `branch_align`
+
+**Syntax:**
+
+```rust
+branch_align() -> ();
+```
+
+**Overview:**
+
+Equalize environment changes across flow merging paths.
+
+**Semantics:**
+
+Align `ap` (allocation pointer) and gas usage for program locations that can be entered from multiple flow paths.
+
+**Example:**
+
+```rust
+branch_align() -> ();
+```
