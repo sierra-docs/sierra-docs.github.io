@@ -54,7 +54,7 @@ Appends an element to the end of an array.
 
 The `array_append` function takes an array and an element as input. It handles updating the array's start and end pointer.
 
-**Parameters:**
+**Arguments:**
 
 - `array`: The array to which the element should be appended.
 - `element`: The element of type `T` that will be appended to the array.
@@ -81,7 +81,7 @@ Fetch an element at a specific index.
 
 Generates the range checks required to check index is within bounds and returns the element at a given index.
 
-**Parameters:**
+**Arguments:**
 
 - `RC`: RangeCheck pointer.
 - `array`: The array to look up in.
@@ -111,7 +111,7 @@ array_len<T>(array) -> (length);
 
 Get the length of an array.
 
-**Parameters:**
+**Arguments:**
 
 - `array`: The array to measure.
 
@@ -159,7 +159,7 @@ Remove an element from the beginning of an array.
 
 Remove and return the first element of an array.
 
-**Parameters:**
+**Arguments:**
 
 - `array`: The array to manipulate.
 
@@ -185,7 +185,7 @@ Return a slice of an array.
 
 Returns a snapshot pointer to an array slice starting at `start` of length `length`.
 
-**Parameters:**
+**Arguments:**
 
 - `array`: The array to slice.
 - `start`: Start of a slice.
@@ -213,7 +213,7 @@ Remove the last element of the array and return a snapshot of it.
 
 Returns a snapshot pointer to the last element of the array and removes it.
 
-**Parameters:**
+**Arguments:**
 
 - `array`: The snapshot of the array to manipulate.
 
@@ -239,7 +239,7 @@ Remove the first element of the array and return a snapshot of it.
 
 Returns a snapshot pointer to the first element of the array and removes it.
 
-**Parameters:**
+**Arguments:**
 
 - `array`: The snapshot of the array to manipulate.
 
@@ -269,7 +269,7 @@ Computes all bitwise operations (AND, XOR, OR) for two `u128` types.
 
 Invokes the bitwise built-in.
 
-**Parameters:**
+**Arguments:**
 
 - `BW` : Bitwise built-in.
 - `x`: First `u128`.
@@ -305,7 +305,7 @@ Calculates the logical AND of two bool values.
 
 Implemented as a multiplication `a * b`.
 
-**Parameters:**
+**Arguments:**
 
 - `a`: First bool
 - `b`: Second bool
@@ -354,7 +354,7 @@ Calculates the logical OR of two bool values.
 
 Implemented as `a + b - a * b`.
 
-**Parameters:**
+**Arguments:**
 
 - `a`: First bool
 - `b`: Second bool
@@ -403,7 +403,7 @@ Calculates the logical XOR of two bool values.
 
 Implemented as `let diff = a - b in diff * diff`.
 
-**Parameters:**
+**Arguments:**
 
 - `a`: First bool
 - `b`: Second bool
@@ -529,6 +529,57 @@ Value to be stored.
 
 ```rust
 store_temp<felt252>([1]) -> ([1]);
+```
+
+## Starknet Syscalls
+
+---
+
+### `call_contract_syscall`
+
+**Syntax:**
+
+```rust
+// Note Sierra statement broken into multiple lines for readability only
+// See example below for syntax in use
+call_contract_syscall(GB, SB, address, entry_point_selector, calldata) {
+  fallthrough(GB1, SB1, return)
+  <failure_branch_label>(GB2, SB2, revert_reason)
+};
+```
+
+**Overview:**
+
+Call a given contract.
+
+**Semantics:**
+
+Invokes the call contract syscall.
+
+**Arguments:**
+
+- `GB`: Gas Built-in
+- `SB`: System Built-in
+- `address`: The address of the called contract
+- `entry_point_selector`: A selector for a function within that contract
+- `calldata` : Call arguments
+
+**Returns (Success branch):**
+
+- `GB1`: Updated Gas Built-in
+- `SB1`: Updated System Built-in
+- `return` : Return data
+
+**Returns (Failure branch):**
+
+- `GB2`: Updated Gas Built-in
+- `SB2`: Updated System Built-in
+- `revert_reason` : Revert reason
+
+**Example:**
+
+```rust
+call_contract_syscall([1], [2], [3], [4], [5]) { fallthrough([6], [7], [8]) 999([9], [10], [11]) };
 ```
 
 ## Misc Operations
