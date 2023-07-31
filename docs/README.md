@@ -34,6 +34,69 @@ If you have any feedback, message [@p_e](https://www.twitter.com/p_e) on Twitter
 Libfuncs are the built-in functions in Sierra and are used to implement all operations.
 Libfuncs are polymorphic supporting multiple types.
 
+## Felt Operations
+
+---
+
+### `felt252_add`
+
+**Syntax:**
+
+```rust
+felt252_add(x, y) -> (sum);
+```
+
+**Overview:**
+
+Adds two field elements modulo the Cairo prime.
+
+**Arguments:**
+
+- `x`: the first felt to add
+- `y`: the second felt to add
+
+**Example:**
+
+```rust
+felt252_add([1], [2]) -> ([3])
+```
+
+### `felt252_sub`
+
+TODO
+
+### `felt252_mul`
+
+TODO
+
+### `felt252_div`
+
+TODO
+
+### `felt252_add_const`
+
+TODO
+
+### `felt252_sub_const`
+
+TODO
+
+### `felt252_mul_const`
+
+TODO
+
+### `felt252_div_const`
+
+TODO
+
+### `felt252_const`
+
+TODO
+
+### `felt252_is_zero`
+
+TODO
+
 ## Array Operations
 
 ---
